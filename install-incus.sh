@@ -1,5 +1,4 @@
 #! /bin/sh
-sudo su -
 mkdir -p /etc/apt/keyrings/
 curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
 sh -c 'cat <<EOF > /etc/apt/sources.list.d/zabbly-incus-stable.sources
@@ -20,4 +19,4 @@ EOF
 apt update
 apt -y install incus
 apt -y install qemu-system # la VM doit supporter la virtualisation pour que kunai-sandbox fonctionne
-incus admin init --minimal
+incus admin init --auto
