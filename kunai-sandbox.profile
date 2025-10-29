@@ -14,6 +14,7 @@ config:
       - libguestfs-tools
       - xorriso
       - tcpdump
+      - file
 
     write_files:
       - path: /root/.profile
@@ -71,7 +72,11 @@ config:
         # ajout du term
 
         echo "export TERM=builtin_xterm\n" >> /root/.bashrc
+        # probleme libguestfs
         echo "export LIBGUESTFS_BACKEND=direct LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1"  >> /root/.bashrc
+        
+        # ajout magika pour la reconnaissance des types de fichiers
+        curl -LsSf https://securityresearch.google/magika/install.sh | sh
 
     # Définition du fuseau horaire
     timezone: Europe/Paris
