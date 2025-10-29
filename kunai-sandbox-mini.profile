@@ -29,7 +29,7 @@ devices:
     type: nic
   root:
     path: /
-    pool: incus-storage-pool
+    pool: default
     size: 20GiB
     type: disk
 name: kunai-sandbox
