@@ -96,6 +96,5 @@ devices:
     size: 20GiB
     type: disk
 name: kunai-sandbox
-used_by:
-- /1.0/instances/sandbox-vm-13
+used_by: []
 project: default
