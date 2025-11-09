@@ -57,7 +57,9 @@ config:
         curl -fsSL https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/fury-nushell.gpg
         echo "deb https://apt.fury.io/nushell/ /" | sudo tee /etc/apt/sources.list.d/fury.list
         apt update
-        apt -y install nushell
+        # polars path are broken in 108 install 107
+        # apt -y install nushell
+        sudo apt-get install nushell=0.107.0-1
 
         # prepare sandbox
         mkdir -p /root/projetm/sandboxes
