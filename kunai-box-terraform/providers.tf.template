@@ -1,0 +1,24 @@
+terraform {
+  required_providers {
+    incus = {
+      source = "lxc/incus"
+    }
+  }
+}
+
+provider "incus" {
+  generate_client_certificates = true
+  accept_remote_certificate    = true
+  default_remote               = "freevirt"
+
+  remote {
+    name    = "local"
+    address = "unix://"
+  }
+
+  remote {
+    name    = "freevirt"
+    address = "https://YOUR_INCUS_HOST:8443"
+    token   = "your TOKEN"
+  }
+}
